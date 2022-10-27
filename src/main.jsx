@@ -5,6 +5,7 @@ import App from './App'
 import "bootstrap/dist/css/bootstrap.min.css";
 import Registro from './Components/Registro';
 import Login from './Components/Login';
+import Edit from './Components/Edit';
 
 import {
   createBrowserRouter,
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login/>,
+  },
+  {
+    path: "/edit",
+    element: <Edit/>,
   },
 ]);
 

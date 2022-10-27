@@ -8,7 +8,7 @@ function Login(){
             <div  className="form-holder" style={{ backgroundColor: "#8f41c4"}}>
                 <div  className="form-content" style={{ backgroundColor: "#8f41c4"}}>
                     <div  className="form-items">
-                        <h3>Register Today</h3>
+                        <h3>Login</h3>
                         <p>Fill in the data below.</p>
                         <form  className="requires-validation" novalidate/>
                          

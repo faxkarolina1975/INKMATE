@@ -1,5 +1,4 @@
-
-function Registro(){
+function Edit(){
     return(
         <div>
 
@@ -8,11 +7,13 @@ function Registro(){
             <div  className="form-holder" style={{ backgroundColor: "#8f41c4"}}>
                 <div  className="form-content" style={{ backgroundColor: "#8f41c4"}}>
                     <div  className="form-items">
-                        <h3>Register Today</h3>
+                        <h3>Edit</h3>
                         <p>Fill in the data below.</p>
                         <form  className="requires-validation" novalidate/>
                          
-                        <div  className="col-md-12">
+                         
+
+                           <div  className="col-md-12">
                                 <input  className="form-control" type="text" name="text" placeholder="First Name"/>
                                  {/* <div  className="valid-feedback">Email field is valid!</div>
                                  <div  className="invalid-feedback">Email field cannot be blank!</div> */}
@@ -30,20 +31,16 @@ function Registro(){
                                  <div  className="invalid-feedback">Email field cannot be blank!</div> */}
                             </div>
 
-                            <div  className="col-md-12">
-                                <select  className="form-select mt-3">
-                                      <option selected disabled value="">Position</option>
-                                      <option value="jweb">Tatuador</option>
-                                      <option value="sweb">Cliente</option>
-                                     
-                               </select>
-                                {/* <div  className="valid-feedback">You selected a position!</div>
-                                <div  className="invalid-feedback">Please select a position!</div> */}
-                           </div>
-
+                          
 
                            <div class="col-md-12">
-                              <input  className="form-control" type="password" name="password" placeholder="Password"/>
+                              <input  className="form-control" type="password" name="password" placeholder="Old Password"/>
+                               {/* <div  className="valid-feedback">Password field is valid!</div>
+                               <div  className="invalid-feedback">Password field cannot be blank!</div> */}
+                           </div>
+
+                           <div class="col-md-12">
+                              <input  className="form-control" type="password" name="password" placeholder="New Password"/>
                                {/* <div  className="valid-feedback">Password field is valid!</div>
                                <div  className="invalid-feedback">Password field cannot be blank!</div> */}
                            </div>
@@ -58,11 +55,12 @@ function Registro(){
                                 <input  className="form-control" type="email" name="email" placeholder="E-mail Address"/>
                                  {/* <div  className="valid-feedback">Email field is valid!</div>
                                  <div  className="invalid-feedback">Email field cannot be blank!</div> */}
-                            </div>             
-                  
+                            </div>
+
+                                     
 
                             <div class="form-button mt-3" >
-                                <button id="submit" type="submit" class="btn btn-dark">Register</button>
+                                <button id="submit" type="submit" class="btn btn-dark">Edit Profile</button>
                             </div>
                     
                     </div>
@@ -75,4 +73,4 @@ function Registro(){
     )
 }
 
-export default Registro
+export default Edit
