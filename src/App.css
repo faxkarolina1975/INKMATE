@@ -10,7 +10,7 @@
 
 html, body {
   
-    background-color: #8f41c4;
+    background-color: #fcfcfc;
     /* overflow: hidden; */
 }
 
@@ -23,6 +23,8 @@ html, body {
       text-align: center;
       min-height: 100vh;
 }
+
+
 
 .form-holder .form-content {
     position: relative;
