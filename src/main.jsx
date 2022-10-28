@@ -7,6 +7,8 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Registro from './Components/Registro';
 import Login from './Components/Login';
 import Edit from './Components/Edit';
+import Feed from './Components/Feed';
+
 
 import {
   createBrowserRouter,
@@ -26,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/edit",
     element: <Edit/>,
+  },
+  {
+    path: "/feed",
+    element: <Feed/>,
   },
 ]);
 
