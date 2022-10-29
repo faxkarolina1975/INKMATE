@@ -1,0 +1,57 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    }
+
+.groups-chat{
+    width: 450px;
+    height:690PX;
+    padding-left: 100px;
+    float: left;
+    margin: 10px 0px 0px 0px;
+    
+    
+}
+.list-group li{
+    padding: 20px;
+
+}
+.list-group img{
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    padding: 0px;
+    display: grid;
+    place-content: center;
+    
+  }
+  .Mensajes{
+    width: 1040px;
+    height:200px;    
+   float: left;
+   padding-left: 10px;
+   padding-top: 10px;
+  }
+
+.list-group
+{   
+    overflow-y: scroll;
+    padding-bottom: 10px;
+    height:100%;
+}
+#mensajes{
+    overflow-y: scroll;
+    height:500px;
+}
+#mensajes >li{
+    padding-top: 0px;
+}
+#enviar{
+    margin:5px;
+    width: 100x;
+    display: flex;
+    justify-content: end;
+}
