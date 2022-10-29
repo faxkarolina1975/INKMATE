@@ -8,6 +8,8 @@ import Registro from './Components/Registro';
 import Login from './Components/Login';
 import Edit from './Components/Edit';
 import Feed from './Components/Feed';
+import Post from './Components/Post';
+
 
 
 import {
@@ -32,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/feed",
     element: <Feed/>,
+  },
+  {
+    path: "/Post",
+    element: <Post/>,
   },
 ]);
 
