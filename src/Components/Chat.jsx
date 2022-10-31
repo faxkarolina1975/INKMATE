@@ -1,6 +1,7 @@
 
 import '../../Css_Components/Chat.css'
 import Inicio from '../Components/Inicio';
+import Nombres from '../Style_Comp/Nombres';
 
 function Chat(){
     return(
@@ -10,54 +11,54 @@ function Chat(){
         <ul className="list-group shadow-lg p-3 m-2">
             <li className="list-group-item d-flex justify-content-start align-items-center">
             <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
-              Cras justo odio
+                <Nombres>Luis</Nombres>
                 <span className="badge badge-primary badge-pill">14</span>
             </li>
             <li className="list-group-item d-flex justify-content-start align-items-center">
             <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
-                Dapibus ac facilisis in
+            <Nombres>Luis</Nombres>
                 <span className="badge badge-primary badge-pill">2</span>
             </li>
             <li className="list-group-item d-flex justify-content-start align-items-center">
                 <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
 
-                Morbi leo risus
+                <Nombres>Luis</Nombres>
                 <span className="badge badge-primary badge-pill">1</span>
             </li>
             <li className="list-group-item d-flex justify-content-start align-items-center">
                 <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
 
-                Morbi leo risus
+                <Nombres>Luis</Nombres>
                 <span className="badge badge-primary badge-pill">1</span>
             </li>
             <li className="list-group-item d-flex justify-content-start align-items-center">
                 <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
 
-                Morbi leo risus
+                <Nombres>Luis</Nombres>
                 <span className="badge badge-primary badge-pill">1</span>
             </li>
             <li className="list-group-item d-flex justify-content-start align-items-center">
                 <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
 
-                Morbi leo risus
+                <Nombres>Luis</Nombres>
                 <span className="badge badge-primary badge-pill">1</span>
             </li>
             <li className="list-group-item d-flex justify-content-start align-items-center">
                 <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
 
-                Morbi leo risus
+                <Nombres>Luis</Nombres>
                 <span className="badge badge-primary badge-pill">1</span>
             </li>
             <li className="list-group-item d-flex justify-content-start align-items-center">
                 <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
 
-                Morbi leo risus
+                <Nombres>Luis</Nombres>
                 <span className="badge badge-primary badge-pill">1</span>
             </li>
             <li className="list-group-item d-flex justify-content-start align-items-center">
                 <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
 
-                Morbi leo risus
+                <Nombres>Luis</Nombres>
                 <span className="badge badge-primary badge-pill">1</span>
             </li>
 

@@ -11,6 +11,9 @@ import Inicio from './Components/Inicio';
 import Home from './Components/Home';
 import Gallery from './Components/Gallery';
 import Chat from './Components/Chat';
+import Feed from './Components/Feed';
+import Post from './Components/Post';
+
 
 import {
   createBrowserRouter,
@@ -48,6 +51,19 @@ const router = createBrowserRouter([
     path: "/Chat",
     element: <Chat/>,
   },
+  {
+    path: "/Post",
+    element: <Post/>,
+  },
+  {
+    path: "/Feed",
+    element: <Feed/>,
+  },
+  {
+    path: "/Registro",
+    element: <Registro/>,
+  },
+
 ]);
 
 
