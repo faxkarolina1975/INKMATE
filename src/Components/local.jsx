@@ -58,7 +58,7 @@ console.log(data);
               <div className="form-items">
                 <h3>Registrar Local</h3>
                 <p>Fill in the data below.</p>
-                <form>
+                
                   
                   <div className="col-md-12">
                     <input className="form-control" 
@@ -72,7 +72,7 @@ console.log(data);
                   <div className="col-md-12">
                     <input
                       className="form-control" 
-                      type="time" 
+                      type="text" 
                      
                       placeholder="Horario"
                       onKeyUp={event=> setHorario(event.target.value)} 
@@ -109,7 +109,7 @@ console.log(data);
                     </button>
                     
                   </div>
-                </form>
+                
               </div>
             </div>
           </div>
