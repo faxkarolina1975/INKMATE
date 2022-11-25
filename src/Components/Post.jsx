@@ -4,6 +4,7 @@ function Post(){
     const[image,setImage]= useState("")
     const[loading,setLoading]= useState(true)
     const[posts,setPost]= useState([])
+    const[description,setDescription]= useState("")
     const sendPost = async()=>{
       /*   const data ={
             user:632945e1819c88c7ac1b1cb4,
@@ -14,7 +15,7 @@ function Post(){
         const formData=new FormData();
         formData.append("user","632945e1819c88c7ac1b1cb4");
         formData.append("local","632e78e5914f7f7c74237304");
-        formData.append("description","aqui va una descripcion");
+        formData.append("description", description);
         formData.append("file",image);
         const response = await fetch("http://localhost:8080/api/posts/",{
             method:"POST",
@@ -63,7 +64,7 @@ function Post(){
         <div className="card-body" >
             <svg className="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#23001E"></rect></svg>
             <p></p>
-            <input className="form-control" type="text" placeholder="Título del Post"></input>
+            <input className="form-control" type="text" placeholder="Título del Post" onKeyUp={event=> setDescription(event.target.value)}></input>
             <p></p>
             <input type="file" className="form-control-file" id="exampleFormControlFile1" onChange={saveImage}></input>
             <p></p>
