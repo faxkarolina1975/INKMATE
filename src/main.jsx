@@ -13,6 +13,7 @@ import Gallery from './Components/Gallery';
 import Chat from './Components/Chat';
 import Feed from './Components/Feed';
 import Post from './Components/Post';
+import Local from './Components/Local';
 
 
 import {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
   {
     path: "/Registro",
     element: <Registro/>,
+  },
+  {
+    path: "/Local",
+    element: <Local/>,
   },
 
 ]);

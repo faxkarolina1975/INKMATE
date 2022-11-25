@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import jwt from 'jwt-decode'
 function Registro() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -28,6 +28,7 @@ function Registro() {
     }).then((r) => r.json());
 
     console.log(response);
+    window.location = '/Login';
   }
 
   return (
@@ -155,9 +156,10 @@ function Registro() {
                   </div>
 
                   <div className="form-button mt-3">
-                    <button id="submit" type="submit" className="btn btn-dark">
+                    <button  id="submit" type="submit" className="btn btn-dark">
                       Register
                     </button>
+                    
                   </div>
                 </form>
               </div>
