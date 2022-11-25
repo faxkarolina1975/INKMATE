@@ -5,7 +5,8 @@ function local() {
     const [schedule, setHorario] = useState("");
     const [weekdays, setWeekdays] = useState("");
     const [location, setLocation] = useState("");
-
+    const uid= JSON.parse(localStorage.getItem('uid'))
+    console.log(uid)
 //     async function createLocals(name,schedule,weekdays,location) {
         
 //         const formData = new FormData();
@@ -30,10 +31,11 @@ const sendLocal = async()=>{
         name,
         schedule,
         weekdays,
+        user:uid,
         location
        
     }
-
+console.log(data);
     const response = await fetch("http://localhost:8080/api/local/",{
         method:"POST",
         headers:{'Content-Type': 'application/json'},
