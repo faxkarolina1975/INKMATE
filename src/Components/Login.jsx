@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react"
+import jwt from 'jwt-decode'
 
 function Login(){
 
@@ -15,7 +16,13 @@ function Login(){
         } )
         .then(r=>r.json())
 
-        console.log(response)
+        
+        const _id= jwt(response.token); 
+        console.log(_id.uid);
+        localStorage.setItem("uid",JSON.stringify(_id.uid))
+
+        window.location = '/Chat';
+
     }
 
 
