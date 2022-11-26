@@ -39,6 +39,8 @@ function Post() {
 
       return;
     }
+    alert("Post Creado con Exito");
+    location.reload();
   };
 
   useEffect(() => {
@@ -50,13 +52,14 @@ function Post() {
       const local = await fetch(
         `http://localhost:8080/api/local/user/${uid}`
       ).then((r) => r.json());
+      console.log(local);
       if (!local.local) {
         alert("Debes registrar un local con este usuario para hacer posts");
         return;
       }
-      const response = await fetch("http://localhost:8080/api/posts/").then(
-        (r) => r.json()
-      );
+      const response = await fetch(
+        `http://localhost:8080/api/local/post/${local.local._id}`
+      ).then((r) => r.json());
       setUserID(uid);
       setLocalID(local.local._id);
       setLoading(false);

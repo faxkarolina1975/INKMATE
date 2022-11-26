@@ -47,52 +47,56 @@ function Inicio() {
               </li>
 
               <li>
-                <span className="nav-link px-2">
-                  <Link style={{color: 'black'}} to="/Home">
+                <Link style={{ color: "black" }} to="/Home">
+                  <span className="nav-link px-2">
                     <i className="bi-house" />{" "}
-                  </Link>
-                  <span className="ms-1 d-none d-sm-inline"></span>
-                </span>
+                    <span className="ms-1 d-none d-sm-inline"></span>
+                  </span>
+                </Link>
               </li>
               <li>
-                <span className="nav-link px-2">
-                  <Link style={{color: 'black'}} className="links" to="/Post">
+                <Link style={{ color: "black" }} className="links" to="/Post">
+                  <span className="nav-link px-2">
                     <i className="bi bi-images" />{" "}
-                  </Link>
-                  <span className="ms-1 d-none d-sm-inline"></span>
-                </span>
+                    <span className="ms-1 d-none d-sm-inline"></span>
+                  </span>
+                </Link>
               </li>
               <li>
-                <span className="nav-link px-2">
-                  <Link style={{color: 'black'}} className="links" to="/Chat">
+                <Link style={{ color: "black" }} className="links" to="/Chat">
+                  <span className="nav-link px-2">
                     <i className="bi bi-chat-right-text" />{" "}
-                  </Link>
-                  <span className="ms-1 d-none d-sm-inline"></span>
-                </span>
+                    <span className="ms-1 d-none d-sm-inline"></span>
+                  </span>
+                </Link>
               </li>
               <li>
-                <span className="nav-link ">
-                  <Link style={{color: 'black'}} className="links" to="/Gallery">
+                <Link
+                  style={{ color: "black" }}
+                  className="links"
+                  to="/Gallery"
+                >
+                  <span className="nav-link ">
                     <i className="bi-shop" />
-                  </Link>
-                  <span className="ms-1 d-none d-sm-inline"></span>
-                </span>
+                    <span className="ms-1 d-none d-sm-inline"></span>
+                  </span>
+                </Link>
               </li>
               <li>
-                <span className="nav-link px-2">
-                <Link style={{color: 'black'}} className="links" to="/Local">
+                <Link style={{ color: "black" }} className="links" to="/Local">
+                  <span className="nav-link px-2">
                     <i className="bi bi-plus-square" />
-                  </Link>
-                  <span className="ms-1 d-none d-sm-inline"></span>
-                </span>
+                    <span className="ms-1 d-none d-sm-inline"></span>
+                  </span>
+                </Link>
               </li>
               <li>
-                <span className="nav-link px-2" onClick={() => logOut()}>
-                  <Link style={{color: 'black'}} className="links" to="/Login">
+                <Link style={{ color: "black" }} className="links" to="/Login">
+                  <span className="nav-link px-2" onClick={() => logOut()}>
                     <i className="bi bi-box-arrow-left" />
-                  </Link>
-                  <span className="ms-1 d-none d-sm-inline"></span>
-                </span>
+                    <span className="ms-1 d-none d-sm-inline"></span>
+                  </span>
+                </Link>
               </li>
             </ul>
           </div>

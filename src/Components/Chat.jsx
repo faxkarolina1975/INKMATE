@@ -39,6 +39,14 @@ function Chat() {
   //console.log(uid)
 
   useEffect(() => {
+    async function loadUsers() {
+      const response = await fetch(`http://localhost:8080/api/user`).then((r) =>
+        r.json()
+      );
+      const users = response.filter((user) => user._id !== uid);
+      setLoading2(true);
+      setallUsers(users);
+    }
     async function loadChats() {
       setuserID(uid);
       console.log(userID);
@@ -50,22 +58,15 @@ function Chat() {
         setNuevo(true);
       }
       setChat(response.conversations);
-      setLoading2(true);
     }
 
     loadChats();
-  }, []);
-
-  useEffect(() => {
-    async function loadUsers() {
-      const response = await fetch(`http://localhost:8080/api/user`).then((r) =>
-        r.json()
-      );
-      const users = response.filter((user) => user._id !== uid);
-      setallUsers(users);
-    }
     loadUsers();
   }, []);
+
+  //useEffect(() => {});
+
+  useEffect(() => {}, []);
 
   const sendMessage = async () => {
     const data = {
@@ -79,7 +80,19 @@ function Chat() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
-    }).then((r) => r.json());
+    });
+    const dataJSON = await response.json();
+    if (response.status !== 200) {
+      if (dataJSON.errors) {
+        dataJSON.errors.forEach((element) => {
+          alert(element.msg);
+        });
+      } else {
+        alert(dataJSON.msg);
+      }
+
+      return;
+    }
     console.log(response);
   };
 
@@ -133,14 +146,15 @@ useEffect(()=> {
     setNuevo(true);
   }
   // if (chats.length != 0) ;
-
-  if (!loading2) {
+  if (!loading2 && !allUsers) {
     return (
       <div>
         <h1>Loading..</h1>
       </div>
     );
   } else {
+    console.log(allUsers);
+    console.log("Aqui estamos");
     return (
       <div className="Chat">
         <Inicio />

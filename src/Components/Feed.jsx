@@ -10,15 +10,20 @@ function Feed() {
   const localid = location.state;
   useEffect(() => {
     const getLocalInformation = async () => {
-      const response = await fetch(
-        `http://localhost:8080/api/local/${localid}`
-      ).then((r) => r.json());
-      const posts = await fetch(
-        `http://localhost:8080/api/local/post/${localid}`
-      ).then((r) => r.json());
-      setPosts(posts.posts);
-      setLocal(response.local);
-      setLoading(false);
+      if (localid) {
+        const response = await fetch(
+          `http://localhost:8080/api/local/${localid}`
+        ).then((r) => r.json());
+        const posts = await fetch(
+          `http://localhost:8080/api/local/post/${localid}`
+        ).then((r) => r.json());
+        setPosts(posts.posts);
+        setLocal(response.local);
+        setLoading(false);
+      } else {
+        alert("Debe ingresar un local ID");
+        window.location = "/home";
+      }
     };
     getLocalInformation();
   }, []);

@@ -63,9 +63,12 @@ function local() {
       } else {
         alert(data2.msg);
       }
-
+      window.reload();
       return;
     }
+
+    alert("Local is Created");
+    window.location = "/home";
   };
 
   return (
