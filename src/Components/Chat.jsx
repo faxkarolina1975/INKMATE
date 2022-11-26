@@ -69,9 +69,9 @@ function Chat() {
       receiver: receiverID,
       message,
       sender: uid,
-      id: "",
+      id: conveID,
     };
-
+console.log (data);
     const response = await fetch("http://localhost:8080/api/message/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -115,6 +115,7 @@ useEffect(()=> {
   function GetidUsuario(idUser, nameUser) {
     setreceiverName(nameUser);
     setreceiverID(idUser);
+    setconveID("");
     console.log(idUser, nameUser);
   }
 
@@ -171,8 +172,10 @@ useEffect(()=> {
                 return (
                   <li
                     className="list-group-item d-flex justify-content-start align-items-center"
-                    onClick={() =>
-                      idChat(chats._id, chats.user.name, chats.user._id)
+                    onClick={() => {
+                      (uid===chats.user._id)?idChat(chats._id, chats.artist.name, chats.artist._id):idChat(chats._id, chats.user.name, chats.user._id)
+                    }
+                      
                     }
                     key={chats._id}
                   >
@@ -181,7 +184,11 @@ useEffect(()=> {
                       src="./img/img-perfil.png"
                       alt="Avatar"
                     />
-                    <Nombres>{chats.user.name}</Nombres>
+                    <Nombres>{
+                      (uid===chats.user._id)?chats.artist.name:chats.user.name
+
+                    
+                    }</Nombres>
                     <span className="badge badge-primary badge-pill text-dark">
                       {chats.message}
                     </span>

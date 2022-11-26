@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import "../../Css_Components/Inicio.css";
+import { Link } from "react-router-dom";
 
 function Inicio() {
   const [user, setUser] = useState([]);
@@ -18,6 +19,15 @@ function Inicio() {
     }
     loadUser();
   }, []);
+
+
+  function logOut(){
+    localStorage.removeItem('uid');
+}
+
+
+
+
   if (loading) {
     console.log(loading);
     return (
@@ -25,6 +35,7 @@ function Inicio() {
         <h1>Loading...</h1>
       </div>
     );
+    
   }
   return (
     <div className="Menu">
@@ -37,34 +48,44 @@ function Inicio() {
               </li>
 
               <li>
-                <a className="nav-link px-2">
+                <span className="nav-link px-2">
+                 <Link to ="/Home">
                   <i className="bi-house" />{" "}
+                  </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
-                </a>
+                </span>
               </li>
               <li>
-                <a className="nav-link px-2">
-                  <i className="bi-table" />{" "}
+                <span className="nav-link px-2">
+                <Link className="links" to ="/Post">
+                  <i className="bi bi-images" />{" "}
+                  </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
-                </a>
+                </span>
               </li>
               <li>
-                <a className="nav-link px-2">
-                  <i className="bi-heart" />{" "}
+                <span className="nav-link px-2">
+                <Link className="links" to ="/Chat" >
+                  <i className="bi bi-chat-right-text" />{" "}
+                  </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
-                </a>
+                </span>
               </li>
               <li>
-                <a className="nav-link ">
+                <span className="nav-link ">
+                <Link className="links" to ="/Gallery">
                   <i className="bi-shop" />
+                  </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
-                </a>
+                </span>
               </li>
-              <li>
-                <a className="nav-link px-2">
-                  <i className="bi-shop" />
+              <li >
+                <span className="nav-link px-2" onClick={()=>logOut()}>
+                <Link  className="links" to ="/Login">
+                  <i className="bi bi-box-arrow-left" />
+                  </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
-                </a>
+                </span>
               </li>
             </ul>
           </div>

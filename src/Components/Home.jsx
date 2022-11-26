@@ -11,6 +11,11 @@ function Home(){
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
+
+                 
+                    <Link className="nav-link" to ="/Gallery">
+                           Gallery
+                    </Link>
                     <Link className="nav-link" to ="/Login">
                            Log
                     </Link>
