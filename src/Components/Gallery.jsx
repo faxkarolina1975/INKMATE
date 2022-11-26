@@ -12,6 +12,9 @@ function Gallery() {
   const [locals, setLocals] = useState([]);
 
   const uid = JSON.parse(localStorage.getItem("uid"));
+  if (!uid) {
+    window.location = "/Home";
+  }
 
   useEffect(() => {
     async function loadLocals() {
@@ -44,9 +47,8 @@ function Gallery() {
             {locals.map((locals) => {
               return (
                 <div className="col-4" key={locals._id}>
-                  
-                    <div className="card shadow p-2 rounded" id="card-fav">
-                      <Link to="/feed" state={locals._id}>
+                  <div className="card shadow p-2 rounded" id="card-fav">
+                    <Link to="/feed" state={locals._id}>
                       <i className="bi bi-star" width="100" height="100"></i>
                       <img
                         src={locals.img}
@@ -57,9 +59,8 @@ function Gallery() {
                       <div className="card-body">
                         <Datos>{locals.name}</Datos>
                       </div>
-                      </Link>
-                    </div>
-
+                    </Link>
+                  </div>
                 </div>
               );
             })}

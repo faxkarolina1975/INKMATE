@@ -7,6 +7,9 @@ function local() {
   const [location, setLocation] = useState("");
   const [file, setFile] = useState("");
   const uid = JSON.parse(localStorage.getItem("uid"));
+  if (!uid) {
+    window.location = "/Home";
+  }
   console.log(uid);
   //     async function createLocals(name,schedule,weekdays,location) {
 
@@ -52,23 +55,17 @@ function local() {
     console.log(response);
     console.log(data2);
 
-    if(response.status != 200){
-
-      if(data2.errors){
-
-        data2.errors.forEach(element => {
+    if (response.status != 200) {
+      if (data2.errors) {
+        data2.errors.forEach((element) => {
           alert(element.msg);
         });
-
-      }else{
-
+      } else {
         alert(data2.msg);
-
       }
 
       return;
     }
-
   };
 
   return (

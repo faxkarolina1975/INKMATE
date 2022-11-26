@@ -10,6 +10,9 @@ function Inicio() {
   useEffect(() => {
     async function loadUser() {
       const uid = JSON.parse(localStorage.getItem("uid"));
+      if (!uid) {
+        window.location = "/Home";
+      }
       const response = await fetch(
         `http://localhost:8080/api/user/${uid}`
       ).then((r) => r.json());
@@ -20,13 +23,10 @@ function Inicio() {
     loadUser();
   }, []);
 
-
-  function logOut(){
-    localStorage.removeItem('uid');
-}
-
-
-
+  function logOut() {
+    window.location = "/Home";
+    localStorage.removeItem("uid");
+  }
 
   if (loading) {
     console.log(loading);
@@ -35,7 +35,6 @@ function Inicio() {
         <h1>Loading...</h1>
       </div>
     );
-    
   }
   return (
     <div className="Menu">
@@ -49,40 +48,40 @@ function Inicio() {
 
               <li>
                 <span className="nav-link px-2">
-                 <Link to ="/Home">
-                  <i className="bi-house" />{" "}
+                  <Link to="/Home">
+                    <i className="bi-house" />{" "}
                   </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
                 </span>
               </li>
               <li>
                 <span className="nav-link px-2">
-                <Link className="links" to ="/Post">
-                  <i className="bi bi-images" />{" "}
+                  <Link className="links" to="/Post">
+                    <i className="bi bi-images" />{" "}
                   </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
                 </span>
               </li>
               <li>
                 <span className="nav-link px-2">
-                <Link className="links" to ="/Chat" >
-                  <i className="bi bi-chat-right-text" />{" "}
+                  <Link className="links" to="/Chat">
+                    <i className="bi bi-chat-right-text" />{" "}
                   </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
                 </span>
               </li>
               <li>
                 <span className="nav-link ">
-                <Link className="links" to ="/Gallery">
-                  <i className="bi-shop" />
+                  <Link className="links" to="/Gallery">
+                    <i className="bi-shop" />
                   </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
                 </span>
               </li>
-              <li >
-                <span className="nav-link px-2" onClick={()=>logOut()}>
-                <Link  className="links" to ="/Login">
-                  <i className="bi bi-box-arrow-left" />
+              <li>
+                <span className="nav-link px-2" onClick={() => logOut()}>
+                  <Link className="links" to="/Login">
+                    <i className="bi bi-box-arrow-left" />
                   </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
                 </span>

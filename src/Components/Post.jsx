@@ -28,28 +28,25 @@ function Post() {
     console.log(response);
     console.log(data);
 
-    if(response.status != 200){
-            
-      if(data.errors){
-
-          data.errors.forEach(element => {
-              alert(element.msg);
-          });
+    if (response.status != 200) {
+      if (data.errors) {
+        data.errors.forEach((element) => {
+          alert(element.msg);
+        });
+      } else {
+        alert(data.msg);
       }
-      else{
 
-          alert(data.msg);
-      }
-      
       return;
-  }
-
-
+    }
   };
 
   useEffect(() => {
     const loadPost = async () => {
       const uid = JSON.parse(localStorage.getItem("uid"));
+      if (!uid) {
+        window.location = "/Home";
+      }
       const local = await fetch(
         `http://localhost:8080/api/local/user/${uid}`
       ).then((r) => r.json());

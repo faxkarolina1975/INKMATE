@@ -33,6 +33,9 @@ function Chat() {
   //const prueba ="632945e1819c88c7ac1b1cb4";
 
   const uid = JSON.parse(localStorage.getItem("uid"));
+  if (!uid) {
+    window.location = "/Home";
+  }
   //console.log(uid)
 
   useEffect(() => {
@@ -43,7 +46,7 @@ function Chat() {
         `http://localhost:8080/api/conversations/${uid}`
       ).then((r) => r.json());
       console.log(response);
-      if (response.conversations.length > 0) {
+      if (response.conversations.length == 0) {
         setNuevo(true);
       }
       setChat(response.conversations);
@@ -71,7 +74,7 @@ function Chat() {
       sender: uid,
       id: conveID,
     };
-console.log (data);
+    console.log(data);
     const response = await fetch("http://localhost:8080/api/message/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -143,59 +146,65 @@ useEffect(()=> {
         <Inicio />
         <div className="groups-chat">
           <ul className="list-group shadow-lg p-3 m-2">
-            {chats.length == 0 ? (
-              nuevo == true ? (
-                allUsers.map((allUsers) => {
-                  return (
-                    <li
-                      className="list-group-item d-flex justify-content-start align-items-center"
-                      onClick={() => GetidUsuario(allUsers._id, allUsers.name)}
-                      key={allUsers._id}
-                    >
-                      <img
-                        className="perfil-img"
-                        src="./img/img-perfil.png"
-                        alt="Avatar"
-                      />
-                      <Nombres>{allUsers.name}</Nombres>
-                      <span className="badge badge-primary badge-pill text-dark"></span>
-                    </li>
-                  );
-                })
-              ) : (
-                <button styled="border-radius: 100%" onClick={() => tal()}>
-                  +
-                </button>
-              )
-            ) : (
-              chats.map((chats) => {
+            <li>
+              <button
+                className="btn btn-info"
+                styled="border-radius: 100%"
+                onClick={() => tal()}
+              >
+                +
+              </button>
+            </li>
+            {nuevo == true ? (
+              allUsers.map((allUsers) => {
                 return (
                   <li
                     className="list-group-item d-flex justify-content-start align-items-center"
-                    onClick={() => {
-                      (uid===chats.user._id)?idChat(chats._id, chats.artist.name, chats.artist._id):idChat(chats._id, chats.user.name, chats.user._id)
-                    }
-                      
-                    }
-                    key={chats._id}
+                    onClick={() => GetidUsuario(allUsers._id, allUsers.name)}
+                    key={allUsers._id}
                   >
                     <img
                       className="perfil-img"
-                      src="./img/img-perfil.png"
+                      src={allUsers.img}
                       alt="Avatar"
                     />
-                    <Nombres>{
-                      (uid===chats.user._id)?chats.artist.name:chats.user.name
-
-                    
-                    }</Nombres>
-                    <span className="badge badge-primary badge-pill text-dark">
-                      {chats.message}
-                    </span>
+                    <Nombres>{allUsers.name}</Nombres>
+                    <span className="badge badge-primary badge-pill text-dark"></span>
                   </li>
                 );
               })
+            ) : (
+              <div></div>
             )}
+            {chats.map((chats) => {
+              return (
+                <li
+                  className="list-group-item d-flex justify-content-start align-items-center"
+                  onClick={() => {
+                    uid === chats.user._id
+                      ? idChat(chats._id, chats.artist.name, chats.artist._id)
+                      : idChat(chats._id, chats.user.name, chats.user._id);
+                  }}
+                  key={chats._id}
+                >
+                  <img
+                    className="perfil-img"
+                    src={
+                      uid === chats.user._id ? chats.artist.img : chats.user.img
+                    }
+                    alt="Avatar"
+                  />
+                  <Nombres>
+                    {uid === chats.user._id
+                      ? chats.artist.name
+                      : chats.user.name}
+                  </Nombres>
+                  <span className="badge badge-primary badge-pill text-dark">
+                    {chats.message}
+                  </span>
+                </li>
+              );
+            })}
 
             {/*
                     <li className="list-group-item d-flex justify-content-start align-items-center">
