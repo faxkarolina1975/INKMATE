@@ -6,18 +6,31 @@ import Inicio from '../Components/Inicio';
 import Nombres from '../Style_Comp/Nombres';
 
 function Chat(){
+    //mensajes de la conversacion 
     const[messages,setMessages]= useState([])
+
     const[loading,setLoading]= useState(false)
+
     const[loading2,setLoading2]= useState(false)
+
     const[user,setUser]=useState([])
     const[chats, setChat]= useState([])
 
+    //nombre del usuario al que envia mensajes
+    const[nameUser, setnameUser] = useState([])
+    //id del usuario del login
     const[userID, setuserID]= useState("")
-
+    //id de la conversacion  
     const[conveID,setconveID]=useState("");
-
+    //message nuevo
     const[message,setMessage]=useState("")
+// id comprobar si quiere crear uno nuevo
+    const[nuevo,setNuevo]= useState(false)
 
+    const[allUsers,setallUsers]=useState("")
+    // informacion del receiver
+    const[receiverID,setreceiverID]= useState("")
+    const[receiverName,setreceiverName]= useState("")
     //const prueba ="632945e1819c88c7ac1b1cb4";
 
     const uid= JSON.parse(localStorage.getItem('uid'))
@@ -39,22 +52,24 @@ function Chat(){
     },[])
 
     useEffect(()=> {
-        async function receInf()
+        async function loadUsers()
         {
-            const response= await fetch(`http://localhost:8080/api/user/${uid}`).then(r=>r.json());
-            console.logResponse
+            const response= await fetch(`http://localhost:8080/api/user`).then(r=>r.json());
+            console.log (response);
+            setallUsers(response);
         }
-    })
+        loadUsers();
+    },[])
 
 
     
 
     const sendMessage = async()=>{
         const data ={
-            receiver:"632945e1819c88c7ac1b1cb4",
+            receiver:receiverID,
             message,
             sender:uid,
-            id:"632e8cac808c6fc88648a2a9"
+            id:""
         }
 
         const response = await fetch("http://localhost:8080/api/message/",{
@@ -87,27 +102,37 @@ useEffect(()=> {
     useEffect(()=> {
         async function loadMessage()
         {
-            const response = await fetch(`http://localhost:8080/api/message/${uid}`).then(r => r.json());
+            const response = await fetch(`http://localhost:8080/api/message/${conveID}`).then(r => r.json());
             console.log(response);
             setMessages(response.messages);
             setLoading(true);
         }
 
         loadMessage();
-    },[conveID])
+    },[conveID],[receiverID])
 
-    function idChat(ID)
+    function GetidUsuario(idUser,nameUser){
+        setreceiverName(nameUser);
+        setreceiverID(idUser);
+        console.log (idUser,nameUser);
+    }
+
+    function idChat(idConv,nameUser,idUser)
     {
-        setconveID(ID);
-        console.log (ID);
+        setnameUser(nameUser);
+        setreceiverID(idUser);
+        setconveID(idConv);
+        console.log (idConv);
     };
 
     function tal()
     {
-        console.log("soy la funcion tal y funciono xd")
+        setNuevo(true);
     }
 
 console.log(chats);
+if(chats.length!=0)
+    setNuevo(true)
 
 
 if (!loading2)
@@ -121,17 +146,33 @@ if (!loading2)
         <div className='groups-chat'>
         <ul className="list-group shadow-lg p-3 m-2">
             {
+                
                 chats.length == 0
-                ? <button styled="border-radius: 100%" onClick={()=>tal()}> Hola </button>
+
+                ? 
+                    
+                        nuevo==true
+                        ? allUsers.map((allUsers)=>{
+                            return(
+                                <li className="list-group-item d-flex justify-content-start align-items-center" onClick={()=>GetidUsuario(allUsers._id,allUsers.name)} key={allUsers._id}>
+                                <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
+                                    <Nombres>{allUsers.name}</Nombres>
+                                    <span className="badge badge-primary badge-pill text-dark"></span>
+                            </li>
+                                  )
+                            
+                        })
+
+                        :   <button styled="border-radius: 100%" onClick={()=>tal()}>+</button>
                 : 
                 chats.map((chats)=>{
 
 
                    return(
-                       <li className="list-group-item d-flex justify-content-start align-items-center" onClick={()=>idChat(chats._id,char._)} key={chats._id}>
+                       <li className="list-group-item d-flex justify-content-start align-items-center" onClick={()=>idChat(chats._id,chats.user.name,chats.user._id)} key={chats._id}>
                        <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
                            <Nombres>{chats.user.name}</Nombres>
-                           <span className="badge badge-primary badge-pill text-dark"> hola</span>
+                           <span className="badge badge-primary badge-pill text-dark"> chat.message</span>
                    </li>
                          )
 
@@ -184,7 +225,7 @@ if (!loading2)
                 return(
                     <li className="list-group-item border-0" key={message._id}>
                     <img className='perfil-img' src="./img/img-perfil.png" alt="Avatar"/>
-                    <p className="font-weight-bold">Bold text.</p>
+                    <p className="font-weight-bold">{nameUser}</p>
                     <br></br>
                     <p className="text-left">{ message.message }</p>
                     </li>
