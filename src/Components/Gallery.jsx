@@ -2,6 +2,7 @@ import "../../Css_Components/Gallery.css";
 import Inicio from "../Components/Inicio";
 import Datos from "../Style_Comp/Perfil";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Gallery() {
   const [loading2, setLoading2] = useState(false);
@@ -43,18 +44,20 @@ function Gallery() {
             {locals.map((locals) => {
               return (
                 <div className="col-4" key={locals._id}>
-                  <div className="card shadow p-2 rounded" id="card-fav">
-                    <i className="bi bi-star" width="100" height="100"></i>
-                    <img
-                      src="./img/img-perfil.png"
-                      className="card-img-top"
-                      id="card-img"
-                      alt="..."
-                    />
-                    <div className="card-body">
-                      <Datos>{locals.name}</Datos>
+                  <Link to="/feed" state={locals._id}>
+                    <div className="card shadow p-2 rounded" id="card-fav">
+                      <i className="bi bi-star" width="100" height="100"></i>
+                      <img
+                        src="./img/img-perfil.png"
+                        className="card-img-top"
+                        id="card-img"
+                        alt="..."
+                      />
+                      <div className="card-body">
+                        <Datos>{locals.name}</Datos>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               );
             })}
