@@ -17,7 +17,7 @@ function Home(){
                            Gallery
                     </Link>
                     <Link className="nav-link" to ="/Login">
-                           Log
+                           Log in
                     </Link>
                     <Link className="nav-link" to ="/Registro">
                             Registrar
@@ -30,10 +30,9 @@ function Home(){
             </nav>
             <div className='Text'>
                     <div className="col-lg-6">
-                        <h1 className="display-5 fw-bold lh-1 mb-3">Responsive left-aligned hero with image</h1>
-                        <p className="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                        <h1 className="display-5 fw-bold lh-1 mb-3">Conoce la pagina</h1>
+                        <p className="lead">Conoce los diseños de los tatuadores, comparte tus diseños personales de tatuajes y comunicate con clientes y otros artistas intercambiando criticas y compartiendo experiencias.</p>
                         <div className="d-grid gap-2 d-md-flex justify-content-md-start">
-                        <button type="button" className="btn btn-dark btn-lg px-4 me-md-2">Primary</button>
 
                         </div>
                     </div>

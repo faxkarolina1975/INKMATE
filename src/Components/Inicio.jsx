@@ -48,7 +48,7 @@ function Inicio() {
 
               <li>
                 <span className="nav-link px-2">
-                  <Link to="/Home">
+                  <Link style={{color: 'black'}} to="/Home">
                     <i className="bi-house" />{" "}
                   </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
@@ -56,7 +56,7 @@ function Inicio() {
               </li>
               <li>
                 <span className="nav-link px-2">
-                  <Link className="links" to="/Post">
+                  <Link style={{color: 'black'}} className="links" to="/Post">
                     <i className="bi bi-images" />{" "}
                   </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
@@ -64,7 +64,7 @@ function Inicio() {
               </li>
               <li>
                 <span className="nav-link px-2">
-                  <Link className="links" to="/Chat">
+                  <Link style={{color: 'black'}} className="links" to="/Chat">
                     <i className="bi bi-chat-right-text" />{" "}
                   </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
@@ -72,7 +72,7 @@ function Inicio() {
               </li>
               <li>
                 <span className="nav-link ">
-                  <Link className="links" to="/Gallery">
+                  <Link style={{color: 'black'}} className="links" to="/Gallery">
                     <i className="bi-shop" />
                   </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
@@ -80,7 +80,7 @@ function Inicio() {
               </li>
               <li>
                 <span className="nav-link px-2" onClick={() => logOut()}>
-                  <Link className="links" to="/Login">
+                  <Link style={{color: 'black'}} className="links" to="/Login">
                     <i className="bi bi-box-arrow-left" />
                   </Link>
                   <span className="ms-1 d-none d-sm-inline"></span>
