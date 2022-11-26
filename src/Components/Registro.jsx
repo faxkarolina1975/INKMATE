@@ -25,9 +25,25 @@ function Registro() {
     const response = await fetch("http://localhost:8080/api/user", {
       method: "POST",
       body: formData,
-    }).then((r) => r.json());
+    });
 
+    const data = await response.json();
     console.log(response);
+    console.log(data);
+
+    if(response.status != 200){
+
+      if(data.errors){
+        data.errors.forEach(element => {
+          alert(element.msg);
+        });
+      }else{
+        alert(data.msg);
+
+      }
+      return;
+    }
+
     window.location = '/Login';
   }
 

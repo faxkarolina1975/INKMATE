@@ -13,11 +13,30 @@ function Login(){
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(user)
-        } )
-        .then(r=>r.json())
-
+        } );
         
-        const _id= jwt(response.token); 
+        const data = await response.json();
+        console.log(response);
+        console.log(data);
+    
+        if(response.status != 200){
+            
+            if(data.errors){
+
+                data.errors.forEach(element => {
+                    alert(element.msg);
+                });
+            }
+            else{
+
+                alert(data.msg);
+            }
+            
+            return;
+        }
+
+
+        const _id= jwt(data.token); 
         console.log(_id.uid);
         localStorage.setItem("uid",JSON.stringify(_id.uid))
 

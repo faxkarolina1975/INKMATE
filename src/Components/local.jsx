@@ -46,8 +46,29 @@ function local() {
     const response = await fetch("http://localhost:8080/api/local/", {
       method: "POST",
       body: formData,
-    }).then((r) => r.json());
+    });
+
+    const data2 = await response.json();
     console.log(response);
+    console.log(data2);
+
+    if(response.status != 200){
+
+      if(data2.errors){
+
+        data2.errors.forEach(element => {
+          alert(element.msg);
+        });
+
+      }else{
+
+        alert(data2.msg);
+
+      }
+
+      return;
+    }
+
   };
 
   return (

@@ -22,7 +22,29 @@ function Post() {
       method: "POST",
       // headers:{'Content-Type': 'application/json'},
       body: formData,
-    }).then((r) => r.text());
+    });
+
+    const data = await response.json();
+    console.log(response);
+    console.log(data);
+
+    if(response.status != 200){
+            
+      if(data.errors){
+
+          data.errors.forEach(element => {
+              alert(element.msg);
+          });
+      }
+      else{
+
+          alert(data.msg);
+      }
+      
+      return;
+  }
+
+
   };
 
   useEffect(() => {
