@@ -161,6 +161,7 @@ useEffect(()=> {
                     </li>
                   );
                 })
+                
               ) : (
                 <button styled="border-radius: 100%" onClick={() => tal()}>
                   +
@@ -187,7 +188,8 @@ useEffect(()=> {
                     </span>
                   </li>
                 );
-              })
+              }
+              )
             )}
 
             {/*

@@ -44,11 +44,12 @@ function Gallery() {
             {locals.map((locals) => {
               return (
                 <div className="col-4" key={locals._id}>
-                  <Link to="/feed" state={locals._id}>
+                  
                     <div className="card shadow p-2 rounded" id="card-fav">
+                      <Link to="/feed" state={locals._id}>
                       <i className="bi bi-star" width="100" height="100"></i>
                       <img
-                        src="./img/img-perfil.png"
+                        src={locals.img}
                         className="card-img-top"
                         id="card-img"
                         alt="..."
@@ -56,182 +57,12 @@ function Gallery() {
                       <div className="card-body">
                         <Datos>{locals.name}</Datos>
                       </div>
+                      </Link>
                     </div>
-                  </Link>
+
                 </div>
               );
             })}
-
-            <div className="col">
-              <div className="card shadow p-2 rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card shadow p-2 rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="row " id="row-galeria">
-            <div className="col">
-              <div className="card shadow p-2 rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card shadow p-2 rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card shadow p-2 rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="row " id="row-galeria">
-            <div className="col">
-              <div className="card shadow p-2 rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card shadow p-2 rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card shadow p-2 rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="row " id="row-galeria">
-            <div className="col">
-              <div className="card shadow p-2  rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card shadow p-2 rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
-
-            <div className="col">
-              <div className="card shadow p-2  rounded" id="card-fav">
-                <i className="bi bi-star" width="100" height="100"></i>
-                <img
-                  src="./img/img-perfil.png"
-                  className="card-img-top"
-                  id="card-img"
-                  alt="..."
-                />
-                <div className="card-body">
-                  <Datos>Tattoo Shop</Datos>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
