@@ -183,8 +183,7 @@ useEffect(()=> {
                     />
                     <Nombres>{chats.user.name}</Nombres>
                     <span className="badge badge-primary badge-pill text-dark">
-                      {" "}
-                      chat.message
+                      {chats.message}
                     </span>
                   </li>
                 );

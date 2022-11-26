@@ -1,128 +1,170 @@
-function Edit(){
-    return(
-        <div>
-<div className="row">
-    <div className="col-sm">
-        <div className="form-body">
-        <div  className="row">
-            <div  className="form-holder" style={{ backgroundColor: "#8f41c4"}}>
-                <div  className="form-content" style={{ backgroundColor: "#8f41c4"}}>
-                    <div  className="form-items">
-                     
-                            <div  className="col-md-12">
-                            
-                            <i class="bi bi-person-circle" style={{ fontSize: 40 }}> 
-                            <button type="submit" class="btn btn-dark">Edit Profile</button>
-                            </i>
-                               
-                            
-                            </div><br></br>
+import { useEffect, useState } from "react";
 
-                            <div  className="col-md-12">
-                                <i class="bi bi-key" style={{ fontSize: 40 }}>  
-                                <button type="submit" class="btn btn-dark">Edit Password/E-mail</button>
-                                </i>
-                              
-                            
-                           
-                            </div><br></br>
+function Edit() {
+  const [uid, setUID] = useState("");
+  const [image, setImage] = useState("");
+  const [name, setName] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [file, setFile] = useState("");
+  useEffect(() => {
+    const getUser = async () => {
+      const uid = JSON.parse(localStorage.getItem("uid"));
+      setUID(uid);
+      const response = await fetch(
+        `http://localhost:8080/api/user/${uid}`
+      ).then((r) => r.json());
+      console.log(response);
+      const { img, name } = response;
+      if (img) {
+        setImage(img);
+      }
+      setName(name);
+      setLoading(false);
+    };
+    getUser();
+  }, []);
 
-                            <div  className="col-md-12">
-                                <i class="bi bi-person-bounding-box" style={{ fontSize: 40 }}>
-                                <button type="submit" class="btn btn-dark">Change Profile to Tatto Artist</button>
-                                </i>
-                           
-                            </div><br></br>
+  const updateUser = async () => {
+    console.log(name, file);
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("name", name);
+    const response = await fetch(`http://localhost:8080/api/user/${uid}`, {
+      method: "PUT",
+      body: formData,
+    }).then((r) => r.json());
+    console.log(response);
+  };
 
-                            <div  className="col-md-12">
-                                <i class="bi bi-box-arrow-left" style={{ fontSize: 40 }}>
-                                <button type="submit" class="btn btn-dark">Log Out</button>
-                                </i>
-                           
-                            </div><br></br>
-     
-                    
+  if (loading) {
+    return (
+      <div>
+        <h1>Loading..</h1>
+      </div>
+    );
+  }
+  return (
+    <div>
+      <div className="row">
+        <div className="col-sm">
+          <div className="form-body">
+            <div className="row">
+              <div
+                className="form-holder"
+                style={{ backgroundColor: "#8f41c4" }}
+              >
+                <div
+                  className="form-content"
+                  style={{ backgroundColor: "#8f41c4" }}
+                >
+                  <div className="form-items">
+                    <div className="col-md-12">
+                      <i
+                        className="bi bi-person-circle"
+                        style={{ fontSize: 40 }}
+                      >
+                        <button type="submit" className="btn btn-dark">
+                          Edit Profile
+                        </button>
+                      </i>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-   
-    <div className="col-sm">
-    <div className="form-body">
-        <div  className="row">
-            <div  className="form-holder" style={{ backgroundColor: "#8f41c4"}}>
-                <div  className="form-content" style={{ backgroundColor: "#8f41c4"}}>
-                    <div  className="form-items">
-                        <h3>Edit</h3>
-                        <p>Fill in the data below.</p>
-                        <form  className="requires-validation" novalidate/>
-                         
-                         
+                    <br></br>
 
-                           <div  className="col-md-12">
-                                <input  className="form-control" type="text" name="text" placeholder="First Name"/>
-                                 {/* <div  className="valid-feedback">Email field is valid!</div>
-                                 <div  className="invalid-feedback">Email field cannot be blank!</div> */}
-                            </div>
-
-                            <div  className="col-md-12">
-                                <input  className="form-control" type="text" name="text" placeholder="Last Name"/>
-                                 {/* <div  className="valid-feedback">Email field is valid!</div>
-                                 <div  className="invalid-feedback">Email field cannot be blank!</div> */}
-                            </div>
-
-                            <div  className="col-md-12">
-                                <input  className="form-control" type="text" name="text" placeholder="User Name"/>
-                                 {/* <div  className="valid-feedback">Email field is valid!</div>
-                                 <div  className="invalid-feedback">Email field cannot be blank!</div> */}
-                            </div>
-
-                          
-
-                           <div class="col-md-12">
-                              <input  className="form-control" type="password" name="password" placeholder="Old Password"/>
-                               {/* <div  className="valid-feedback">Password field is valid!</div>
-                               <div  className="invalid-feedback">Password field cannot be blank!</div> */}
-                           </div>
-
-                           <div class="col-md-12">
-                              <input  className="form-control" type="password" name="password" placeholder="New Password"/>
-                               {/* <div  className="valid-feedback">Password field is valid!</div>
-                               <div  className="invalid-feedback">Password field cannot be blank!</div> */}
-                           </div>
-
-                           <div class="col-md-12">
-                              <input  className="form-control" type="password" name="password" placeholder="Confirm Password"/>
-                               {/* <div  className="valid-feedback">Password field is valid!</div>
-                               <div  className="invalid-feedback">Password field cannot be blank!</div> */}
-                           </div>
-
-                           <div  className="col-md-12">
-                                <input  className="form-control" type="email" name="email" placeholder="E-mail Address"/>
-                                 {/* <div  className="valid-feedback">Email field is valid!</div>
-                                 <div  className="invalid-feedback">Email field cannot be blank!</div> */}
-                            </div>
-
-                    
-
-                            <div class="form-button mt-3" >
-                                <button id="submit" type="submit" class="btn btn-dark">Edit Profile</button>
-                            </div>
-                    
+                    <div className="col-md-12">
+                      <i className="bi bi-key" style={{ fontSize: 40 }}>
+                        <button type="submit" className="btn btn-dark">
+                          Edit Password/E-mail
+                        </button>
+                      </i>
                     </div>
+                    <br></br>
+
+                    <div className="col-md-12">
+                      <i
+                        className="bi bi-person-bounding-box"
+                        style={{ fontSize: 40 }}
+                      >
+                        <button type="submit" className="btn btn-dark">
+                          Change Profile to Tatto Artist
+                        </button>
+                      </i>
+                    </div>
+                    <br></br>
+
+                    <div className="col-md-12">
+                      <i
+                        className="bi bi-box-arrow-left"
+                        style={{ fontSize: 40 }}
+                      >
+                        <button type="submit" className="btn btn-dark">
+                          Log Out
+                        </button>
+                      </i>
+                    </div>
+                    <br></br>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-    </div>
-    </div>
 
+        <div className="col-sm">
+          <div className="form-body">
+            <div className="row">
+              <div
+                className="form-holder"
+                style={{ backgroundColor: "#8f41c4" }}
+              >
+                <div
+                  className="form-content"
+                  style={{ backgroundColor: "#8f41c4" }}
+                >
+                  <div className="form-items">
+                    <h3>Edit</h3>
+                    <p>Fill in the data below.</p>
+                    <div className="col-md-12">
+                      <img
+                        src={image ? image : ""}
+                        alt="Image Profile"
+                        className="rounded rounded-pill mx-auto img-fluid"
+                      />
+                    </div>
+                    <div className="col-md-12">
+                      <input
+                        className="form-control"
+                        type="text"
+                        name="text"
+                        placeholder={name}
+                        onKeyUp={({ target }) => setName(target.value)}
+                      />
+                    </div>
+                    <div className="col-md-12 mt-2">
+                      <input
+                        className="form-control"
+                        type="file"
+                        onChange={({ target }) => setFile(target.files[0])}
+                      />
+                    </div>
+                    <div className="form-button mt-3">
+                      <button
+                        id="submit"
+                        type="submit"
+                        className="btn btn-dark"
+                        onClick={() => updateUser()}
+                      >
+                        Edit Profile
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    
-    )
+  );
 }
 
-export default Edit
+export default Edit;
