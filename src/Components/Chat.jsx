@@ -58,8 +58,8 @@ function Chat() {
       const response = await fetch(`http://localhost:8080/api/user`).then((r) =>
         r.json()
       );
-      console.log(response);
-      setallUsers(response);
+      const users = response.filter((user) => user._id !== uid);
+      setallUsers(users);
     }
     loadUsers();
   }, []);
@@ -161,7 +161,6 @@ useEffect(()=> {
                     </li>
                   );
                 })
-                
               ) : (
                 <button styled="border-radius: 100%" onClick={() => tal()}>
                   +
@@ -188,8 +187,7 @@ useEffect(()=> {
                     </span>
                   </li>
                 );
-              }
-              )
+              })
             )}
 
             {/*
