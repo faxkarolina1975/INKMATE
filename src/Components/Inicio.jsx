@@ -79,6 +79,14 @@ function Inicio() {
                 </span>
               </li>
               <li>
+                <span className="nav-link px-2">
+                <Link style={{color: 'black'}} className="links" to="/Local">
+                    <i className="bi bi-plus-square" />
+                  </Link>
+                  <span className="ms-1 d-none d-sm-inline"></span>
+                </span>
+              </li>
+              <li>
                 <span className="nav-link px-2" onClick={() => logOut()}>
                   <Link style={{color: 'black'}} className="links" to="/Login">
                     <i className="bi bi-box-arrow-left" />
