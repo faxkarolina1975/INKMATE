@@ -124,6 +124,7 @@ useEffect(()=> {
           `http://localhost:8080/api/message/${conveID}`
         ).then((r) => r.json());
         console.log(response);
+        x;
         setMessages(response.messages);
         setLoading(true);
       }
