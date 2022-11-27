@@ -8,7 +8,7 @@ function local() {
   const [file, setFile] = useState("");
   const uid = JSON.parse(localStorage.getItem("uid"));
   if (!uid) {
-    window.location = "/Home";
+    window.location = "/Login";
   }
   console.log(uid);
   //     async function createLocals(name,schedule,weekdays,location) {
@@ -68,7 +68,7 @@ function local() {
     }
 
     alert("Local is Created");
-    window.location = "/home";
+    window.location = "/Gallery";
   };
 
   return (

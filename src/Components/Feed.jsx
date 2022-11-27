@@ -22,7 +22,7 @@ function Feed() {
         setLoading(false);
       } else {
         alert("Debe ingresar un local ID");
-        window.location = "/home";
+        window.location = "/Login";
       }
     };
     getLocalInformation();

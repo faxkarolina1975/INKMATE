@@ -28,6 +28,9 @@ ul{
     height: 99vh;
     position: fixed;
   }
+  #iconos >li{
+    margin-top: -10px;
+  }
   .perfil-img{
     border-radius: 50%;
     width: 55px;

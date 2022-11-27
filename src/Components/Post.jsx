@@ -47,7 +47,7 @@ function Post() {
     const loadPost = async () => {
       const uid = JSON.parse(localStorage.getItem("uid"));
       if (!uid) {
-        window.location = "/Home";
+        window.location = "/Login";
       }
       const local = await fetch(
         `http://localhost:8080/api/local/user/${uid}`

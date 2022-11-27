@@ -34,7 +34,7 @@ function Chat() {
 
   const uid = JSON.parse(localStorage.getItem("uid"));
   if (!uid) {
-    window.location = "/Home";
+    window.location = "/Login";
   }
   //console.log(uid)
 
@@ -160,10 +160,10 @@ useEffect(()=> {
         <Inicio />
         <div className="groups-chat">
           <ul className="list-group shadow-lg p-3 m-2">
-            <li>
-              <button
-                className="btn btn-info"
-                styled="border-radius: 100%"
+            <li styled="list-style-type: none;">
+              <button id="btn_new"
+                className="btn btn-dark"
+                styled="border-radius: 100%;"
                 onClick={() => tal()}
               >
                 +
@@ -172,7 +172,7 @@ useEffect(()=> {
             {nuevo == true ? (
               allUsers.map((allUsers) => {
                 return (
-                  <li
+                  <li id ="chats_li"
                     className="list-group-item d-flex justify-content-start align-items-center"
                     onClick={() => GetidUsuario(allUsers._id, allUsers.name)}
                     key={allUsers._id}
@@ -193,6 +193,7 @@ useEffect(()=> {
             {chats.map((chats) => {
               return (
                 <li
+                id ="chats_li"
                   className="list-group-item d-flex justify-content-start align-items-center"
                   onClick={() => {
                     uid === chats.user._id
@@ -255,14 +256,10 @@ useEffect(()=> {
             {messages.map((message) => {
               return (
                 <li className="list-group-item border-0" key={message._id}>
-                  <img
-                    className="perfil-img"
-                    src="./img/img-perfil.png"
-                    alt="Avatar"
-                  />
-                  <p className="font-weight-bold">{nameUser}</p>
-                  <br></br>
-                  <p className="text-left">{message.message}</p>
+
+
+                  <p id="Nombre" className="font-weight-bold">{nameUser}</p>
+                  <p id="enviado" className="font-weight-normal">   {message.message}</p>
                 </li>
               );
             })}
@@ -279,7 +276,7 @@ useEffect(()=> {
                         */}
           </ul>
           <br></br>
-          <ul className="list-group">
+          <ul id ="Sendbox" className="list-group">
             <li className="list-group-item border-0 justify-content-end">
               <div className="form-group">
                 <textarea

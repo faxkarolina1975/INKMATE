@@ -14,8 +14,20 @@
     
     
 }
+#btn_new{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+#chats_li{
+    background-color: #9a65be;
+}
 .list-group li{
-    padding: 20px;
+    margin-top: 10px;
+    background-color: #8f41c4;
+    border-radius: 10px;
+    list-style-type: none;
+    
 
 }
 .list-group img{
@@ -30,7 +42,7 @@
   }
   .Mensajes{
     width: 1040px;
-    height:200px;    
+    height:500px;    
    float: left;
    padding-left: 10px;
    padding-top: 10px;
@@ -41,17 +53,40 @@
     overflow-y: scroll;
     padding-bottom: 10px;
     height:100%;
+    position: relative;
 }
 #mensajes{
     overflow-y: scroll;
     height:500px;
+    
 }
 #mensajes >li{
     padding-top: 0px;
+   
+    height: 80px;
+    width: 990px;
+}
+#mensajes >li>img{
+    margin-top: 5px;
+}
+#Sendbox{
+    height: 150px;
+    position: absolute;
+    width: 1000px;
 }
 #enviar{
     margin:5px;
     width: 100x;
-    display: flex;
-    justify-content: end;
+    float:left;
+}
+#Nombre{
+    margin:5px;
+    font-weight: bold;
+}
+#enviado{
+    
+    margin-left:20px;
+}
+p{
+    margin:0;
 }

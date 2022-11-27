@@ -13,7 +13,7 @@ function Gallery() {
 
   const uid = JSON.parse(localStorage.getItem("uid"));
   if (!uid) {
-    window.location = "/Home";
+    window.location = "/Login";
   }
 
   useEffect(() => {

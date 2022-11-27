@@ -11,7 +11,7 @@ function Inicio() {
     async function loadUser() {
       const uid = JSON.parse(localStorage.getItem("uid"));
       if (!uid) {
-        window.location = "/Home";
+        window.location = "/Login";
       }
       const response = await fetch(
         `http://localhost:8080/api/user/${uid}`
@@ -24,7 +24,7 @@ function Inicio() {
   }, []);
 
   function logOut() {
-    window.location = "/Home";
+    window.location = "/Login";
     localStorage.removeItem("uid");
   }
 
@@ -41,19 +41,20 @@ function Inicio() {
       <div className="container-fluid mt-0">
         <div className="row">
           <div className="col-auto min-vh-100">
-            <ul>
+            <ul id ="iconos">
               <li>
                 <img className="perfil-img" src={user.img} alt="Avatar" />
               </li>
-
+{/*
               <li>
-                <Link style={{ color: "black" }} to="/Home">
+                <Link style={{ color: "black" }} to="/">
                   <span className="nav-link px-2">
                     <i className="bi-house" />{" "}
                     <span className="ms-1 d-none d-sm-inline"></span>
                   </span>
                 </Link>
-              </li>
+              </li>*/}
+
               <li>
                 <Link style={{ color: "black" }} className="links" to="/Post">
                   <span className="nav-link px-2">
@@ -94,6 +95,14 @@ function Inicio() {
                 <Link style={{ color: "black" }} className="links" to="/Login">
                   <span className="nav-link px-2" onClick={() => logOut()}>
                     <i className="bi bi-box-arrow-left" />
+                    <span className="ms-1 d-none d-sm-inline"></span>
+                  </span>
+                </Link>
+              </li>
+              <li>
+                <Link style={{ color: "black" }} className="links" to="/Edit">
+                  <span className="nav-link px-2" onClick={() => logOut()}>
+                    <i className="bi bi-gear" />
                     <span className="ms-1 d-none d-sm-inline"></span>
                   </span>
                 </Link>

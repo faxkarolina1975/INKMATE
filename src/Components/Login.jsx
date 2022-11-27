@@ -55,6 +55,7 @@ function Login(){
             <div  className="form-holder" style={{ backgroundColor: "#8f41c4"}}>
                 <div  className="form-content" style={{ backgroundColor: "#8f41c4"}}>
                     <div  className="form-items">
+                        <h2>INKMATE</h2>
                         <h3>Login</h3>
                         <p>Fill in the data below.</p>
                         <form onSubmit={ev =>{ ev.preventDefault(); login(email, password);}} className="requires-validation" noValidate>
