@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Inicio from "./Inicio";
 
 function local() {
   const [name, setlocalName] = useState("");
@@ -73,12 +74,13 @@ function local() {
 
   return (
     <div>
+      <Inicio></Inicio>
       <div className="form-body">
         <div className="row">
-          <div className="form-holder" style={{ backgroundColor: "#8f41c4" }}>
+          <div className="form-holder" style={{ backgroundColor: "#642f88" }}>
             <div
               className="form-content"
-              style={{ backgroundColor: "#8f41c4" }}
+              style={{ backgroundColor: "#642f88" }}
             >
               <div className="form-items">
                 <h3>Registrar Local</h3>

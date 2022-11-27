@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Inicio from "./Inicio";
 
 function Edit() {
   const [uid, setUID] = useState("");
@@ -46,6 +47,8 @@ function Edit() {
       return;
     }
     console.log(response);
+    alert("Usuario actualizado con exito");
+    location.reload();
   };
 
   if (loading) {
@@ -57,8 +60,9 @@ function Edit() {
   }
   return (
     <div>
+      <Inicio></Inicio>
       <div className="row">
-        <div className="col-sm">
+       {/* <div className="col-sm">
           <div className="form-body">
             <div className="row">
               <div
@@ -120,17 +124,17 @@ function Edit() {
             </div>
           </div>
         </div>
-
+*/       }
         <div className="col-sm">
           <div className="form-body">
             <div className="row">
               <div
                 className="form-holder"
-                style={{ backgroundColor: "#8f41c4" }}
+                style={{ backgroundColor: "#642f88" }}
               >
                 <div
                   className="form-content"
-                  style={{ backgroundColor: "#8f41c4" }}
+                  style={{ backgroundColor: "#642f88" }}
                 >
                   <div className="form-items">
                     <h3>Edit</h3>

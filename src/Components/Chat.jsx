@@ -116,7 +116,7 @@ useEffect(()=> {
       async function loadMessage() {
         console.log("Si jala");
         if (conveID === "") {
-          console.log("sexo");
+          
           setMessages([]);
           return;
         }
@@ -140,7 +140,7 @@ useEffect(()=> {
     setconveID("");
     console.log(idUser, nameUser);
     if (conveID === "") {
-      console.log("sexo");
+      
       setMessages([]);
     }
   }

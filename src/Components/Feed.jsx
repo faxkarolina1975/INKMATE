@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Tarjeta from "./FeedComponents/Tarjeta";
+import { Link } from "react-router-dom";
 function Feed() {
   const [loading, setLoading] = useState(true);
   const [local, setLocal] = useState();
@@ -35,7 +36,13 @@ function Feed() {
     );
   }
   return (
+    
     <div style={{ backgroundColor: "#8f41c4" }}>
+      <Link className="nav-link" to ="/Gallery">
+      <i class="bi bi-arrow-up-left-square" ></i>
+      </Link>
+
+
       <div className="position-relative overflow-hidden p-3 row">
         <div className="col-md-6 p-lg-5 ">
           <h1 className="display-4 fw-normal" style={{ color: "white" }}>
