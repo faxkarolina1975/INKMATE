@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import jwt from 'jwt-decode'
+import { Link } from "react-router-dom";
 function Registro() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -175,6 +176,9 @@ function Registro() {
                     <button  id="submit" type="submit" className="btn btn-dark" >
                       Register
                     </button>
+                    <Link className="nav-link" to ="/Login">
+                           Log in
+                    </Link>
                     
                   </div>
                 </form>

@@ -101,7 +101,7 @@ function Inicio() {
               </li>
               <li>
                 <Link style={{ color: "black" }} className="links" to="/Edit">
-                  <span className="nav-link px-2" onClick={() => logOut()}>
+                  <span className="nav-link px-2">
                     <i className="bi bi-gear" />
                     <span className="ms-1 d-none d-sm-inline"></span>
                   </span>

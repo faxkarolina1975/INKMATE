@@ -1,5 +1,6 @@
 import Tarjeta2 from "./FeedComponents/Tarjeta2";
 import { useEffect, useState } from "react";
+import Inicio from "./Inicio";
 function Post() {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(true);
@@ -80,7 +81,9 @@ function Post() {
     );
   }
   return (
-    <div style={{ backgroundColor: "#8f41c4" }}>
+   
+    <div style={{ backgroundColor: "#642f88" }}>
+       <Inicio></Inicio>
       <section className="py-5 text-center container">
         <div className="row py-lg-5">
           <div className="col-lg-6 col-md-8 mx-auto">
@@ -131,7 +134,7 @@ function Post() {
         </div>
       </section>
 
-      <div className="album py-5" style={{ backgroundColor: "#8f41c4" }}>
+      <div className="album py-5" style={{ backgroundColor: "#642f88" }}>
         <div className="container">
           <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 row row-cols-4 row-cols-sm-5 row-cols-md-6 row row-cols-7 row-cols-sm-8 row-cols-md-9">
             <Tarjeta2 />
