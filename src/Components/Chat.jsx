@@ -114,6 +114,12 @@ useEffect(()=> {
   useEffect(
     () => {
       async function loadMessage() {
+        console.log("Si jala");
+        if(conveID===""){
+          console.log("sexo");
+          setMessage([]);
+          return;
+        }
         const response = await fetch(
           `http://localhost:8080/api/message/${conveID}`
         ).then((r) => r.json());
@@ -133,6 +139,11 @@ useEffect(()=> {
     setreceiverID(idUser);
     setconveID("");
     console.log(idUser, nameUser);
+    if(conveID===""){
+      console.log("sexo");
+      setMessage([]);
+
+    }
   }
 
   function idChat(idConv, nameUser, idUser) {
