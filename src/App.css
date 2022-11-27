@@ -100,10 +100,10 @@ html, body {
 
 .btn-primary{
     background-color: #6C757D;
-    outline: none;
-    text-align: left;
-    border: 0px;
-     box-shadow: none;
+    display:flex;
+    justify-content:center;
+    
+   
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active{

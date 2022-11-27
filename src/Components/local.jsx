@@ -121,8 +121,8 @@ function local() {
                     placeholder="Address"
                     onKeyUp={(event) => setLocation(event.target.value)}
                   />
-                </div>
-                <div className="form-button mt-3">
+                </div><br></br>
+                <div class="col-md-12 text-center">
                   <button
                     id="submit"
                     type="submit"

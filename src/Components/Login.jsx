@@ -84,9 +84,9 @@ function Login(){
                               />
                                {/* <div  className="valid-feedback">Password field is valid!</div>
                                <div  className="invalid-feedback">Password field cannot be blank!</div> */}
-                           </div>
+                           </div><br></br>
 
-                            <div className="form-button mt-3" >
+                           <div className="col-md-12 text-center">
                                 <button 
                                 id="submit" 
                                 type="submit" 

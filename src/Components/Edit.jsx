@@ -135,11 +135,12 @@ function Edit() {
                   <div className="form-items">
                     <h3>Edit</h3>
                     <p>Fill in the data below.</p>
-                    <div className="col-md-12">
+                    <div class="col-md-12 text-center">
                       <img
                         src={image ? image : ""}
                         alt="Image Profile"
                         className="rounded rounded-pill mx-auto img-fluid"
+                        width="307" height="240"
                       />
                     </div>
                     <div className="col-md-12">
@@ -157,8 +158,8 @@ function Edit() {
                         type="file"
                         onChange={({ target }) => setFile(target.files[0])}
                       />
-                    </div>
-                    <div className="form-button mt-3">
+                    </div><br></br>
+                    <div class="col-md-12 text-center">
                       <button
                         id="submit"
                         type="submit"

@@ -56,7 +56,7 @@ function Gallery() {
                         id="card-img"
                         alt="..."
                       />
-                      <div className="card-body">
+                      <div className="card-body col-md-12 text-center">
                         <Datos>{locals.name}</Datos>
                       </div>
                     </Link>

@@ -169,10 +169,10 @@ function Registro() {
                     />
                     {/* <div  className="valid-feedback">Email field is valid!</div>
                                  <div  className="invalid-feedback">Email field cannot be blank!</div> */}
-                  </div>
+                  </div><br></br>
 
-                  <div className="form-button mt-3">
-                    <button  id="submit" type="submit" className="btn btn-dark">
+                  <div className="col-md-12 text-center">
+                    <button  id="submit" type="submit" className="btn btn-dark" >
                       Register
                     </button>
                     
